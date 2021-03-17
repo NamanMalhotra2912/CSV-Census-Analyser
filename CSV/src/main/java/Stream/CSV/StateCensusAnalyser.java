@@ -9,7 +9,7 @@ public class StateCensusAnalyser {
 
 	public static void main(String[] args) throws IOException {
 		 
-		FileReader file = new FileReader("E:\\\\eclipse-workspace\\\\CSV\\\\StatesList.txt");
+		FileReader file = new FileReader("E:\\eclipse-workspace\\CSV\\StatesList.txt");
 		BufferedReader br = new BufferedReader(file);
 		
 		String line = br.readLine();

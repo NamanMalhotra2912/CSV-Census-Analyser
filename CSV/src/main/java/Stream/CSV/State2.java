@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Arrays;
 
+import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 public class State2 {
@@ -15,20 +17,35 @@ public class State2 {
 //		File file = new File("E:\\eclipse-workspace\\CSV\\StatesList.txt");
 //		FileReader fr = new FileReader(file);
 		
-		FileReader file = new FileReader("E:\\\\eclipse-workspace\\\\CSV\\\\StatesList.txt");
-		BufferedReader br = new BufferedReader(file);
+		FileReader file = new FileReader("E:\\eclipse-workspace\\CSV\\StatesList.txt");
+//		BufferedReader br = new BufferedReader(file);
 		
-		String line = br.readLine();
+//		String line = br.readLine();
 		
-		while(line != null) {
-			System.out.println(line);
-			line = br.readLine();
-		}
+		CSVReader reader  = new CSVReader(file);
+		String line[] ;
 		
+//		while(line != null) {
+//			System.out.println(line);
+//			line = br.readLine();
+//		}
+		
+		
+		
+		
+		 while ((line = reader.readNext()) != null) {
+			 if (line != null) {
+		 
+		            //Verifying the read data here
+		            System.out.println(Arrays.toString(line));
+		         }
+		
+//			 CSVReader reader = new CSVReader(new FileReader("data.csv"), ',' , '"' , 1);
 //		try {
-//				FileWriter fileWriter = new FileWriter("E:\\eclipse-workspace\\CSV\\StatesList.csv");
-//				CSVWriter writer = new CSVWriter(fileWriter);
-				
+				FileWriter fileWriter = new FileWriter("E:\\eclipse-workspace\\CSV\\StatesList.csv");
+				CSVWriter writer = new CSVWriter(fileWriter);
+				writer.writeAll(line);
+//				
 //				writer.writeAll(line);
 				
 //				String [] header = {"Id", "Name", "Class", "Marks" };
@@ -55,7 +72,5 @@ public class State2 {
 			System.out.println("Process Completed");
 		
 		
-		
-	}
-
-}
+		 }
+}}
